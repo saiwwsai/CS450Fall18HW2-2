@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/bisque"
+            android:text="@string/choose_a_door"
+            android:textColor="#242424"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/prompt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/bisque"
+            android:text="@string/choose_orange_door"
+            android:textColor="#242424"
+            android:textSize="26sp" />
+
+        <include
+            layout="@layout/doors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+
+            <TextView
+                android:layout_column="0"
+                android:layout_row="1"
+                android:background="@color/snow3"
+                android:padding="5dp"
+                android:text="@string/wins"
+                android:textColor="#525252"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_column="0"
+                android:layout_row="2"
+                android:background="@color/snow3"
+                android:padding="5dp"
+                android:text="@string/loss"
+                android:textColor="#525252"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_column="0"
+                android:layout_row="3"
+                android:background="@color/snow3"
+                android:padding="5dp"
+                android:text="@string/total"
+                android:textColor="#525252"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_column="1"
+                android:layout_row="0"
+                android:background="@color/snow3"
+                android:padding="5dp"
+                android:text="@string/total_round"
+                android:textColor="#525252"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/wins"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:background="@color/snow2"
+                android:padding="5dp"
+                android:text="0"
+                android:textColor="#525252"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/losses"
+                android:layout_column="1"
+                android:layout_row="2"
+                android:background="@color/snow2"
+                android:padding="5dp"
+                android:text="0"
+                android:textColor="#525252"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/totals"
+                android:layout_column="1"
+                android:layout_row="3"
+                android:background="@color/snow2"
+                android:padding="5dp"
+                android:text="0"
+                android:textColor="#525252"
+                android:textSize="14sp" />
+
+            <!-- finish grid layout -->
+
+        </GridLayout>
+
+    </LinearLayout>
+
+    <!-- TODO: Update blank fragment layout -->
+
+</FrameLayout>

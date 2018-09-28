@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="snow2">#EEE9E9</color>
+    <color name="snow3">#CDC9C9</color>
+    <color name="rosebrown3">#CD9B9B</color>
+    <color name="greenSoap">#8CDD81</color>
+    <color name="bisque">#FFE4C4</color>
+
+
+</resources>

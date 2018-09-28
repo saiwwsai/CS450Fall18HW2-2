@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">MontyHall</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title">The Monty Hall Problem</string>
+    <string name="new_text">New</string>
+    <string name="continue_text">Continue</string>
+    <string name="about_text">About</string>
+    <string name="about">
+        This is St. Lawrence University CS450
+        Implementation of the Monty Hall Game.
+    </string>
+    <string name="about_title_text">About the Monty Hall Problem</string>
+    <string name="ok">OK</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Welcome</string>
+    <string name="choose_a_door">Choose A Door</string>
+    <string name="wins">Win</string>
+    <string name="loss">Loss</string>
+    <string name="door_switch_title">Door Switch</string>
+    <string name="door_switch_text">Switch to Open Another Door?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="total">Total</string>
+    <string name="total_round">Rounds</string>
+    <string name="Percentage">Percentage</string>
+    <string name="Round_End">Round End</string>
+    <string name="you_win">You Win a Car! \nDo you want to play again?</string>
+    <string name="you_loss">Oh No! It\'s a Goat! \nDo you want to play again?</string>
+    <string name="aCar">It\'s a Car!</string>
+    <string name="aGoat">It\'s a Goat!</string>
+    <string name="choose_orange_door">Click on the Orange Door!</string>
+
+
+</resources>
