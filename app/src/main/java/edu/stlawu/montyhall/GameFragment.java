@@ -73,7 +73,6 @@ public class GameFragment extends Fragment {
         setRetainInstance(true);
     }
 
-
     @SuppressLint("ResourceType")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -125,7 +124,6 @@ public class GameFragment extends Fragment {
 
             // todo cannot back up at the middle of popups
 
-
             result = prefer.getString("result", null);
             firstClick();
         }
@@ -136,6 +134,8 @@ public class GameFragment extends Fragment {
 
         return gameView;
     }
+
+
     public void firstClick() {
 
 
@@ -189,6 +189,8 @@ public class GameFragment extends Fragment {
             }
         });
     }
+
+  //todo  onpause save score
 
     public void showGoat() {
         // Toast indicating another door is open
@@ -477,6 +479,25 @@ public class GameFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onPause() {
+        // save state
+        SharedPreferences prefer = getActivity().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+
+
+        prefer.edit().putInt("WINS", winNum).apply();
+        prefer.edit().putInt("LOSSES", lossNum).apply();
+
+        prefer.edit().putInt("carDoor", carDoor).apply();
+        prefer.edit().putInt("doorClicked", doorClicked).apply();
+
+
+        prefer.edit().putString("result", result).apply();
+
+        prefer.edit().putBoolean("CONTINUE_CLICKED",false).apply();
+        prefer.edit().putBoolean("NEW_CLICKED",false).apply();
+        super.onPause();
+    }
 
     public void finalResult() {
         blockDoors();
@@ -580,7 +601,6 @@ public class GameFragment extends Fragment {
                                     getActivity().getSharedPreferences(
                                             PREF_NAME, MODE_PRIVATE).edit();
                               prefer.putBoolean("BackToHomePage", true).apply();
-
                             Intent intent = new Intent(
                                     getActivity(), MainActivity.class);
                             getActivity().startActivity(intent);
@@ -615,6 +635,7 @@ public class GameFragment extends Fragment {
                             Intent intent = new Intent(
                                     getActivity(), MainActivity.class);
                             getActivity().startActivity(intent);
+                            // todo back to home then back to game cannot save grades
                         }
                     });
             builder.show();
@@ -623,29 +644,6 @@ public class GameFragment extends Fragment {
 
     }
 
-    public void reset() {
-        door1.setEnabled(true);
-        door2.setEnabled(true);
-        door3.setEnabled(true);
-
-        door1.setImageLevel(0);
-        door2.setImageLevel(0);
-        door3.setImageLevel(0);
-
-        doorClicked = 0;
-
-        // todo back to home then back to game cannot save grades
-       /* SharedPreferences.Editor prefer =
-                getActivity().getSharedPreferences(
-                        PREF_NAME, MODE_PRIVATE).edit();
-        this.winNum = prefer.getInt("WINS", winNum);
-        this.lossNum = prefer.getInt("LOSSES", lossNum);
-
-        this.totalNum = winNum + lossNum;
-*/
-        firstClick();
-
-    }
 
     public void updateData() {
         if (result.equals("win")) {
@@ -659,6 +657,38 @@ public class GameFragment extends Fragment {
             loss.setText(Integer.toString(lossNum));
             total.setText(Integer.toString(totalNum));
         }
+
+   /*     SharedPreferences.Editor prefer =
+                getActivity().getSharedPreferences(
+                        PREF_NAME, MODE_PRIVATE).edit();
+        this.winNum = prefer.getInt("WINS", winNum);
+        this.lossNum = prefer.getInt("LOSSES", lossNum);
+
+        this.totalNum = winNum + lossNum;
+        */
+
+    }
+    public void reset() {
+        door1.setEnabled(true);
+        door2.setEnabled(true);
+        door3.setEnabled(true);
+
+        door1.setImageLevel(0);
+        door2.setImageLevel(0);
+        door3.setImageLevel(0);
+
+        doorClicked = 0;
+
+        firstClick();
+        // todo back to home then back to game cannot save grades
+        SharedPreferences.Editor prefer =
+                getActivity().getSharedPreferences(
+                        PREF_NAME, MODE_PRIVATE).edit();
+        prefer.putInt("WINS", winNum).apply();
+        prefer.putInt("LOSSES", lossNum).apply();
+
+        this.totalNum = winNum + lossNum;
+
     }
 
 
