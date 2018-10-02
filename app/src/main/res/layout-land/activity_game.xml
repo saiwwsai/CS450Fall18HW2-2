@@ -11,6 +11,7 @@
         android:name="edu.stlawu.montyhall.GameFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         tools:layout="@layout/fragment_game" />
 
 </FrameLayout>

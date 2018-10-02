@@ -14,8 +14,7 @@
     <string name="ok">OK</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Welcome</string>
-    <string name="choose_a_door">Choose A Door</string>
+    <string name="choose_a_door">Choose A Door!</string>
     <string name="wins">Win</string>
     <string name="loss">Loss</string>
     <string name="door_switch_title">Door Switch</string>

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -81,8 +82,7 @@ public class MainFragment extends Fragment {
                    getActivity(), GameActivity.class);
                  getActivity().startActivity(intent);
              }
-         }
-        );
+         });
          View continueButton = rootView.findViewById(R.id.continue_button);
          continueButton.setOnClickListener(new View.OnClickListener(){
 
@@ -98,9 +98,6 @@ public class MainFragment extends Fragment {
 
             }
         });
-
-
-
 
         return rootView;
     }

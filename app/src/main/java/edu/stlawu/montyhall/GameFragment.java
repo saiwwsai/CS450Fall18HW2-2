@@ -61,6 +61,7 @@ public class GameFragment extends Fragment {
     private int clickSound = 0;
     private int popupSound = 0;
     private int countdownSound = 0;
+    private int magicSound = 0;
     private Animation bouncing = null;
 
     public GameFragment() {
@@ -92,7 +93,6 @@ public class GameFragment extends Fragment {
         this.loss = gameView.findViewById(R.id.losses);
         this.total = gameView.findViewById(R.id.totals);
 
-
         bouncing = AnimationUtils.loadAnimation(getActivity(), R.anim.bouncing);
         aa = new AudioAttributes.Builder().setContentType(AudioAttributes.CONTENT_TYPE_MUSIC).setUsage(AudioAttributes.USAGE_GAME).build();
         soundPool = new SoundPool.Builder().setMaxStreams(1).setAudioAttributes(aa).build();
@@ -101,6 +101,7 @@ public class GameFragment extends Fragment {
         clickSound = soundPool.load(getContext(), R.raw.click, 1);
         popupSound = soundPool.load(getContext(), R.raw.popup, 1);
         countdownSound = soundPool.load(getContext(), R.raw.countdown, 1);
+        magicSound = soundPool.load(getContext(), R.raw.magic, 1);
 
         SharedPreferences prefer = getActivity().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
 
@@ -131,7 +132,6 @@ public class GameFragment extends Fragment {
         loss.setText(Integer.toString(lossNum));
         total.setText(Integer.toString(totalNum));
 
-
         return gameView;
     }
 
@@ -144,9 +144,11 @@ public class GameFragment extends Fragment {
 
         prompt.setVisibility(View.VISIBLE);
         prompt2.setVisibility(View.INVISIBLE);
+        soundPool.play(magicSound, 1, 1, 1, 0, 1f);
         door1.startAnimation(bouncing);
         door2.startAnimation(bouncing);
         door3.startAnimation(bouncing);
+
 
         // set onClickListener
         door1.setOnClickListener(new View.OnClickListener() {
@@ -465,6 +467,10 @@ public class GameFragment extends Fragment {
         // it is the only one can be shown
 
         blockDoors();
+        door1.startAnimation(bouncing);
+        door2.startAnimation(bouncing);
+        door3.startAnimation(bouncing);
+
         if (doorClicked!=1 && showDoor != 1) {
             door1.setEnabled(true);
             door1.setImageLevel(0);
@@ -541,7 +547,7 @@ public class GameFragment extends Fragment {
                                     public void run() {
                                         if (carDoor == getDoorNum(door)) {
                                             door.setImageLevel(2);
-                                            soundPool.play(carSound, 1, 1, 1, 0, 1f);
+                                            soundPool.play(carSound, 3, 3, 1, 0, 1f);
                                             result = "win";
                                             handler.postDelayed(new Runnable() {
                                                 @Override
